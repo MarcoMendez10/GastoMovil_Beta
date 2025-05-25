@@ -5,18 +5,25 @@ Gasto Móvil: ⛽📊
 
 ✨ Características Estrellas
 Registro Sencillo y Seguro: Crea tu cuenta en segundos con un formulario intuitivo. ¡Tu información importante está a salvo! 🔒
+
 Inicio de Sesión Mágico: Accede a tu espacio personal con un par de toques. ¡Listo para gestionar tus finanzas! ✨
+
 Sesión Continua (¡Como por Arte de Magia!): Aunque no es magia, usamos localStorage para que tu sesión permanezca activa mientras navegues. ¡No más inicios de sesión repetitivos! 🧙‍♂️
+
 Fortaleza en la Seguridad: Tus datos son privados. Hemos implementado un AuthGuard que protege las áreas clave de la aplicación, ¡solo tú puedes ver tu información! 🛡️
+
 Cierre de Sesión Limpio: Cuando termines, tu sesión se cierra de forma segura, eliminando tu token y redirigiéndote de vuelta al punto de partida. ¡Privacidad garantizada! 🚪➡️
+
 Próximamente: ¡Funcionalidades increíbles para registrar, visualizar y analizar tus gastos de combustible! (¡Mantente al tanto! 😉)
 🛠️ Tecnologías Bajo el Capó
+
 Ionic Framework: El corazón de nuestra UI, para un look & feel nativo en cualquier plataforma. 💖
 Angular: El cerebro que organiza y potencia toda la lógica de la aplicación. 🧠
 TypeScript: Código más limpio, robusto y fácil de mantener. ¡Adiós a los errores sorpresa! ✅
 HTML & SCSS: Dando vida y estilo a cada pantalla. 🎨
 Capacitor: La promesa de llevar Gasto Móvil directamente a tu teléfono (Android e iOS). 📱
 🚀 ¡Arranca el Proyecto en un Instante!
+
 ¿Listo para poner a rodar Gasto Móvil en tu máquina? ¡Es más fácil de lo que piensas!
 
 1. Prepara tu Entorno ⚙️
