@@ -1,0 +1,132 @@
+
+
+ion-content {
+  
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+  
+}
+
+/* Estilos para el contenedor principal del formulario de registro */
+.registration-container {
+  max-width: 450px; // Limita el ancho del formulario en pantallas grandes
+  margin: 20px auto; // Centra el contenedor
+  padding: 25px; // Espaciado interno generoso
+  background: rgba(var(--ion-color-light-rgb), 0.95); // Fondo semitransparente para que el fondo de la página se insinúe
+  border-radius: 15px; // Bordes más redondeados
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); // Sombra un poco más pronunciada para que resalte del fondo
+  backdrop-filter: blur(5px); // Efecto de desenfoque para el fondo detrás del contenedor (moderno)
+}
+
+/* Estilos para el logo */
+.register-logo {
+  width: 200px; // Tamaño del logo
+  height: 150px;
+  margin: 0 auto 25px auto; // Centra el logo y añade más margen inferior
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); // Sombra sutil para el logo
+}
+
+/* Estilos para el título "Crea tu Cuenta" */
+h2 {
+  font-size: 2.2em; // Tamaño del título más grande
+  color: var(--ion-color-primary); // Color principal de la aplicación
+  margin-bottom: 10px;
+  font-weight: 800; // Más negrita
+}
+
+/* Estilos para el párrafo de bienvenida */
+p {
+  font-size: 1em;
+  color: var(--ion-color-medium-shade);
+  margin-bottom: 30px; // Más espacio debajo del párrafo de bienvenida
+}
+
+/* Estilos para la lista de ítems del formulario */
+ion-list {
+  background: transparent; // Fondo completamente transparente para la lista
+  padding: 0;
+}
+
+/* Estilos para cada campo de entrada (ion-item) */
+ion-item {
+  --background: transparent; // Fondo del ítem completamente transparente
+  --border-radius: 0px; // Bordes no redondeados para un look más "limpio"
+  margin-bottom: 20px; // Más espacio entre ítems
+  box-shadow: none; // Sin sombra
+  --border-width: 0 !important; // Eliminar bordes de Ionic
+  --inner-border-width: 0 !important; // Eliminar líneas internas
+  --detail-icon-display: none; // Oculta la flecha de detalle en ion-select si no la quieres
+}
+
+/* Estilos para las etiquetas flotantes */
+ion-label {
+  font-size: 0.95em;
+  color: var(--ion-color-medium); // Color de la etiqueta
+  font-weight: 500;
+  transform: translateY(5px); /* Ajusta la posición inicial de la etiqueta flotante si es necesario */
+}
+
+/* Estilos para los inputs y el select */
+ion-input, ion-select {
+  --padding-start: 0px; // Sin padding al inicio para alinearse con la etiqueta
+  --padding-end: 0px;
+  font-size: 1.1em; // Tamaño del texto de entrada
+  color: var(--ion-color-dark); // Color del texto de entrada
+  // Borde inferior sutil para delimitar el campo
+  border-bottom: 1.5px solid var(--ion-color-light-shade, #dcdcdc);
+  margin-bottom: 0px; // No más margen si ya tenemos el borde inferior
+  padding-bottom: 4px; // Espacio entre el texto y el borde inferior
+  padding-top: 5px; /* Ajuste si la etiqueta flotante se superpone */
+}
+
+ion-select {
+  padding-top: 10px; // Asegura que el ion-select tenga espacio para el contenido
+  padding-bottom: 8px; // Espacio entre el contenido y el borde inferior
+}
+
+/* Estilos para el botón de registro */
+ion-button[type="submit"] {
+  --border-radius: 10px; // Bordes redondeados para el botón
+  font-weight: 700; // Texto más negrita
+  font-size: 1.1em;
+  height: 50px; // Altura del botón
+  margin-top: 30px; // Más espacio superior
+}
+
+/* Estilo para el texto "Inicia Sesión" al final */
+p.ion-margin-top {
+  font-size: 0.9em;
+  color: var(--ion-color-medium);
+  ion-text {
+    font-weight: 700; // Negrita para el enlace
+    cursor: pointer;
+    color: var(--ion-color-primary); // Color del enlace
+    text-decoration: none; // Sin subrayado
+  }
+}
+
+/* Media query para pantallas más pequeñas (móviles) */
+@media (max-width: 576px) {
+  .registration-container {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .register-logo {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+  ion-item {
+    margin-bottom: 15px;
+  }
+  ion-input, ion-select {
+    font-size: 1em;
+  }
+}

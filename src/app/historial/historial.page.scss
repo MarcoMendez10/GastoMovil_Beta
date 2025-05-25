@@ -1,0 +1,91 @@
+.history-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: var(--ion-color-primary);
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-list {
+  background: var(--ion-card-background, #ffffff); /* Fondo para la lista */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 0; /* Asegura que la lista no tenga padding extra */
+}
+
+ion-item {
+  --background: transparent; /* Fondo transparente para los ítems dentro de la lista */
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --inner-padding-end: 0; /* Elimina padding extra en el final si hay slotes */
+  
+  // Estilos para los items de encabezado
+  &.list-header {
+    font-weight: bold;
+    color: var(--ion-color-dark);
+    --background: var(--ion-color-light); /* Fondo claro para el encabezado */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+}
+
+ion-label h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+ion-label p {
+  font-size: 0.85em;
+  color: var(--ion-color-medium-shade);
+  margin-bottom: 0;
+}
+
+ion-label[slot="end"] {
+  font-weight: 500;
+  color: var(--ion-color-secondary); /* Color para los valores numéricos */
+  min-width: 70px; /* Asegura que las etiquetas finales tengan suficiente espacio */
+  text-align: right;
+}
+
+// Estilos para el botón de registrar nueva carga
+ion-button {
+  --border-radius: 8px;
+  font-weight: 500;
+  margin-top: 25px;
+}
+
+// Media query para pantallas pequeñas
+@media (max-width: 576px) {
+  .history-container {
+    margin: 10px auto;
+    padding: 10px;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  ion-item {
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+  ion-label h3 {
+    font-size: 1em;
+  }
+  ion-label p {
+    font-size: 0.8em;
+  }
+}
+
+ion-content {
+  
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+  
+}

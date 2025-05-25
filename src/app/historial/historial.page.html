@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Historial de Cargas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="history-container">
+    <h2>Tus Últimos Llenados</h2>
+
+    <ion-list lines="inset">
+      <ion-item class="list-header" color="light">
+        <ion-label>Fecha</ion-label>
+        <ion-label slot="end">Litros</ion-label>
+        <ion-label slot="end">Total</ion-label>
+      </ion-item>
+
+      <ion-item *ngFor="let carga of cargas">
+        <ion-label>
+          <h3>{{ formatDate(carga.fecha) }}</h3>
+          <p>{{ carga.estacionServicio }} - {{ carga.kilometraje }} km</p>
+        </ion-label>
+        <ion-label slot="end">{{ carga.litros }} L</ion-label>
+        <ion-label slot="end">$ {{ carga.costoTotal | number:'1.0-0' }}</ion-label>
+        </ion-item>
+
+      <ion-item *ngIf="cargas.length === 0" class="ion-text-center ion-padding">
+        <ion-label>Aún no tienes cargas registradas.</ion-label>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button expand="block" class="ion-margin-top" (click)="goToNuevaCarga()">Registrar Nueva Carga</ion-button>
+  </div>
+</ion-content>

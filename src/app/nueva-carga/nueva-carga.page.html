@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/historial"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrar Carga</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="new-charge-container ion-text-center">
+    <h2>Nueva Carga de Combustible</h2>
+    <p>Ingresa los detalles de tu último llenado.</p>
+
+    <form [formGroup]="cargaForm" (ngSubmit)="registrarCarga()">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label position="floating">Fecha y Hora</ion-label>
+          <ion-input type="datetime-local" formControlName="fecha"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="cargaForm.get('fecha')?.invalid && cargaForm.get('fecha')?.touched">
+          <p class="error-message">La fecha es requerida.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Litros Cargados</ion-label>
+          <ion-input type="number" formControlName="litros" placeholder="Ej: 35.5"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="cargaForm.get('litros')?.invalid && cargaForm.get('litros')?.touched">
+          <p class="error-message" *ngIf="cargaForm.get('litros')?.errors?.['required']">Los litros son requeridos.</p>
+          <p class="error-message" *ngIf="cargaForm.get('litros')?.errors?.['min']">Debe ser un valor positivo.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Costo Total ($)</ion-label>
+          <ion-input type="number" formControlName="costoTotal" placeholder="Ej: 38500"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="cargaForm.get('costoTotal')?.invalid && cargaForm.get('costoTotal')?.touched">
+          <p class="error-message" *ngIf="cargaForm.get('costoTotal')?.errors?.['required']">El costo es requerido.</p>
+          <p class="error-message" *ngIf="cargaForm.get('costoTotal')?.errors?.['min']">Debe ser un valor positivo.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Kilometraje Actual (km)</ion-label>
+          <ion-input type="number" formControlName="kilometraje" placeholder="Ej: 125345"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="cargaForm.get('kilometraje')?.invalid && cargaForm.get('kilometraje')?.touched">
+          <p class="error-message" *ngIf="cargaForm.get('kilometraje')?.errors?.['required']">El kilometraje es requerido.</p>
+          <p class="error-message" *ngIf="cargaForm.get('kilometraje')?.errors?.['min']">Debe ser un valor positivo.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Tipo de Combustible</ion-label>
+          <ion-select formControlName="tipoCombustible" interface="action-sheet" placeholder="Selecciona">
+            <ion-select-option value="bencina93">Bencina 93</ion-select-option>
+            <ion-select-option value="bencina95">Bencina 95</ion-select-option>
+            <ion-select-option value="bencina97">Bencina 97</ion-select-option>
+            <ion-select-option value="diesel">Diésel</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-text color="danger" *ngIf="cargaForm.get('tipoCombustible')?.invalid && cargaForm.get('tipoCombustible')?.touched">
+          <p class="error-message">El tipo de combustible es requerido.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Estación de Servicio (Opcional)</ion-label>
+          <ion-input type="text" formControlName="estacionServicio" placeholder="Ej: Shell, Copec"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Notas (Opcional)</ion-label>
+          <ion-textarea formControlName="notas" autoGrow="true" placeholder="Comentarios adicionales..."></ion-textarea>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-content class="ion-padding">
+  <div class="history-container">
+    <ion-button expand="block" class="ion-margin-top" routerLink="/nueva-carga">Registrar Nueva Carga</ion-button>
+  </div>
+</ion-content>
+    </form>
+  </div>
+</ion-content>

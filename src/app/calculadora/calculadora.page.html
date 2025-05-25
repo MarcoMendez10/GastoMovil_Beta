@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculadora de Gastos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="calculadora-container">
+    <h1 class="ion-text-center">Calcula tu Gasto de Combustible</h1>
+
+    <ion-list lines="full">
+      <ion-item>
+        <ion-input label="Distancia Recorrida (km)" label-placement="floating" type="number" placeholder="Ej: 100" [(ngModel)]="calculo.distancia"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Precio por Litro de Bencina ($ CLP)" label-placement="floating" type="number" placeholder="Ej: 1050" [(ngModel)]="calculo.precioLitro"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Consumo del Vehículo (km/L)" label-placement="floating" type="number" placeholder="Ej: 15" [(ngModel)]="calculo.consumo"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" class="ion-margin-top" (click)="calcularGasto()">Calcular Gasto</ion-button>
+
+    <ion-card *ngIf="gastoEstimado !== null" class="ion-margin-top resultado-card">
+      <ion-card-header>
+        <ion-card-title>Gasto Estimado</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <p class="gasto-valor">${{ gastoEstimado | number:'1.0-0' }} CLP</p>
+        <p>Este es un estimado de tu gasto para {{ calculo.distancia }} km.</p>
+      </ion-card-content>
+    </ion-card>
+
+    <p class="ion-text-center ion-margin-top version-pro-link">
+      ¿Quieres más? Descubre la <a routerLink="/app/pro" routerDirection="forward">Versión Pro</a>
+    </p>
+  </div>
+</ion-content>
+

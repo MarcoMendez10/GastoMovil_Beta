@@ -1,0 +1,35 @@
+
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <ion-img src="assets/icon/Logo-Gasto-Movil03.png" alt="Logo Gasto Móvil" class="app-logo"></ion-img>
+    <h1 class="ion-text-center">Inicia Sesión</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+      <ion-list lines="full">
+        <ion-item>
+          <ion-input label="Correo Electrónico" label-placement="floating" type="email" placeholder="tu@ejemplo.com" formControlName="correo"></ion-input>
+        </ion-item>
+        <ion-note slot="end" color="danger" *ngIf="loginForm.get('correo')?.invalid && loginForm.get('correo')?.touched">
+          <span *ngIf="loginForm.get('correo')?.errors?.['required']">Correo requerido.</span>
+          <span *ngIf="loginForm.get('correo')?.errors?.['email']">Formato de correo inválido.</span>
+        </ion-note>
+
+        <ion-item>
+          <ion-input label="Contraseña" label-placement="floating" type="password" placeholder="Ingresa tu contraseña" formControlName="contrasena"></ion-input>
+        </ion-item>
+        <ion-note slot="end" color="danger" *ngIf="loginForm.get('contrasena')?.invalid && loginForm.get('contrasena')?.touched">
+          <span *ngIf="loginForm.get('contrasena')?.errors?.['required']">Contraseña requerida.</span>
+          <span *ngIf="loginForm.get('contrasena')?.errors?.['minlength']">Mínimo 6 caracteres.</span>
+        </ion-note>
+      </ion-list>
+
+      <ion-button expand="block" class="ion-margin-top" type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</ion-button>
+    </form>
+
+    <p class="ion-text-center ion-margin-top">
+      ¿No tienes una cuenta? <a routerLink="/registro" routerDirection="forward">Regístrate aquí</a>
+    </p>
+  </div>
+</ion-content>
+

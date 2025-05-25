@@ -1,0 +1,111 @@
+/* Estilos para el contenedor principal del formulario de nueva carga */
+.new-charge-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 25px;
+  background: rgba(var(--ion-color-light-rgb), 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+}
+
+h2 {
+  font-size: 2em;
+  color: var(--ion-color-primary);
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-align: center;
+}
+
+p {
+  font-size: 0.95em;
+  color: var(--ion-color-medium-shade);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+ion-item {
+  --background: transparent;
+  --border-radius: 0px;
+  margin-bottom: 20px;
+  box-shadow: none;
+  --border-width: 0 !important;
+  --inner-border-width: 0 !important;
+  --detail-icon-display: none;
+}
+
+
+ion-label {
+  font-size: 0.95em;
+  color: var(--ion-color-medium);
+  font-weight: 500;
+  // Ajusta el 'top' de la etiqueta cuando está flotando
+  --top: 15px; /* Valor por defecto es 16px. Baja a 15 o menos si quieres subirla, sube si quieres bajarla*/
+  // Ajusta la posición vertical inicial de la etiqueta y el placeholder
+  transform: translateY(10px); /* Aumentar este valor bajará la etiqueta/placeholder inicialmente */
+}
+
+// AJUSTE CLAVE AQUÍ: Estilos para inputs, selects y textareas
+ion-input,
+ion-select,
+ion-textarea {
+  --padding-start: 0px;
+  --padding-end: 0px;
+  font-size: 1.1em;
+  color: var(--ion-color-dark);
+  border-bottom: 1.5px solid var(--ion-color-light-shade, #dcdcdc);
+  margin-bottom: 0px;
+  padding-bottom: 9px;
+  // Aumenta el padding-top para bajar el texto del placeholder
+  --padding-top: 25px; /* Aumenta este valor para bajar el texto dentro del input */
+}
+
+ion-select {
+  // Aseguramos que el select mantenga un buen padding también
+  --padding-top: 25px;
+  padding-bottom: 8px;
+}
+
+ion-button[type="submit"] {
+  --border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1em;
+  height: 50px;
+  margin-top: 30px;
+}
+
+.error-message {
+  font-size: 0.85em;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+@media (max-width: 576px) {
+  .new-charge-container {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  ion-item {
+    margin-bottom: 15px;
+  }
+  ion-input, ion-select, ion-textarea {
+    font-size: 1em;
+    --padding-top: 20px; /* Ajuste para pantallas pequeñas */
+  }
+}
+
+ion-content {
+  
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+  
+}

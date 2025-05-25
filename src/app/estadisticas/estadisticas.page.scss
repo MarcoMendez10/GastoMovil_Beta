@@ -1,0 +1,64 @@
+.statistics-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: var(--ion-color-primary);
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-title {
+  color: var(--ion-color-dark);
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.statistic-value {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: var(--ion-color-secondary); /* Un color que destaque */
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.statistic-description {
+  font-size: 0.9em;
+  color: var(--ion-color-medium-shade);
+}
+
+// Estilos para el botón de ver historial
+ion-button[fill="outline"] {
+  --border-radius: 8px;
+  font-weight: 500;
+}
+
+// Media query para pantallas pequeñas
+@media (max-width: 576px) {
+  .statistics-container {
+    margin: 10px auto;
+    padding: 10px;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  .statistic-value {
+    font-size: 1.5em;
+  }
+
+  ion-content {
+  
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+  
+}
+}

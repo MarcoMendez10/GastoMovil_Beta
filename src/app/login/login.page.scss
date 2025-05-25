@@ -1,0 +1,23 @@
+ion-content {
+  
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+  
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  // Añadimos un fondo semi-transparente al contenedor para que el texto y los inputs sean legibles
+  background: rgba(255, 255, 255, 0.8); // Blanco con 80% de opacidad
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // Sombra más pronunciada para el contenedor
+  // Puedes ajustar la opacidad (0.8) o el color (rgba) según el brillo de tu imagen de fondo.
+}
+
+
+ion-note {
+  font-size: 0.75em;
+  margin-top: 5px;
+  display: block;
+}

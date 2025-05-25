@@ -1,0 +1,40 @@
+
+  .pro-content {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--ion-color-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  .pro-main-icon {
+    font-size: 10em;
+    color: var(--ion-color-tertiary); 
+    margin-bottom: 20px;
+    --ionicon-stroke-width: 16px; 
+  }
+
+  .feature-list {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: var(--ion-color-light-shade);
+    border-radius: 8px;
+    padding: 10px 0;
+  }
+
+  .feature-list ion-item {
+    --padding-start: 15px;
+    --inner-padding-end: 15px;
+  }
+
+  .feature-list ion-icon {
+    margin-right: 15px;
+    font-size: 1.5em;
+  }
+
+  .contact-info {
+    font-size: 0.9em;
+    color: var(--ion-color-medium);
+  }

@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mi Auto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="auto-form-container ion-text-center">
+    <h2>Detalles de Mi Vehículo</h2>
+    <p>Registra o actualiza la información de tu auto.</p>
+
+    <form [formGroup]="autoForm" (ngSubmit)="guardarDatosAuto()">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label position="floating">Nombre del Auto</ion-label>
+          <ion-input type="text" formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="autoForm.get('nombre')?.invalid && autoForm.get('nombre')?.touched">
+          <p class="error-message">El nombre del auto es requerido.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Modelo del Auto (Nombre)</ion-label>
+          <ion-input type="text" formControlName="modeloAuto" placeholder="Ej: Corolla, F-150"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="autoForm.get('modeloAuto')?.invalid && autoForm.get('modeloAuto')?.touched">
+          <p class="error-message">El modelo del auto es requerido.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Descripción</ion-label>
+          <ion-textarea formControlName="descripcion" autoGrow="true" placeholder="Ej: Mi auto principal para el trabajo y la familia."></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Tipo de Combustible</ion-label>
+          <ion-select formControlName="tipoCombustible" interface="action-sheet" placeholder="Selecciona">
+            <ion-select-option value="bencina93">Bencina 93</ion-select-option>
+            <ion-select-option value="bencina95">Bencina 95</ion-select-option>
+            <ion-select-option value="bencina97">Bencina 97</ion-select-option>
+            <ion-select-option value="diesel">Diésel</ion-select-option>
+            <ion-select-option value="electrico">Eléctrico</ion-select-option>
+            <ion-select-option value="hibrido">Híbrido</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-text color="danger" *ngIf="autoForm.get('tipoCombustible')?.invalid && autoForm.get('tipoCombustible')?.touched">
+          <p class="error-message">El tipo de combustible es requerido.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Capacidad de Estanque (Litros)</ion-label>
+          <ion-input type="number" formControlName="capacidadEstanque" placeholder="Ej: 45"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="autoForm.get('capacidadEstanque')?.invalid && autoForm.get('capacidadEstanque')?.touched">
+          <p class="error-message" *ngIf="autoForm.get('capacidadEstanque')?.errors?.['required']">La capacidad del estanque es requerida.</p>
+          <p class="error-message" *ngIf="autoForm.get('capacidadEstanque')?.errors?.['min']">Debe ser un valor positivo.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Marca</ion-label>
+          <ion-input type="text" formControlName="marca" placeholder="Ej: Toyota"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="autoForm.get('marca')?.invalid && autoForm.get('marca')?.touched">
+          <p class="error-message">La marca es requerida.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Año del Modelo</ion-label>
+          <ion-input type="number" formControlName="modelo" placeholder="Ej: 2020"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="autoForm.get('modelo')?.invalid && autoForm.get('modelo')?.touched">
+          <p class="error-message" *ngIf="autoForm.get('modelo')?.errors?.['required']">El año del modelo es requerido.</p>
+          <p class="error-message" *ngIf="autoForm.get('modelo')?.errors?.['min']">Debe ser un año válido.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Patente</ion-label>
+          <ion-input type="text" formControlName="patente" placeholder="Ej: AB1234"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="autoForm.get('patente')?.invalid && autoForm.get('patente')?.touched">
+          <p class="error-message">La patente es requerida.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Póliza de Seguro</ion-label>
+          <ion-input type="text" formControlName="polizaSeguro" placeholder="Ej: XYZ12345"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Fecha Próxima Revisión Técnica</ion-label>
+          <ion-input type="date" formControlName="revisionTecnica"></ion-input>
+        </ion-item>
+
+        <ion-item class="toggle-item">
+          <ion-label>Auto Activo</ion-label>
+          <ion-toggle slot="end" formControlName="activo"></ion-toggle>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-button expand="block" type="submit" [disabled]="autoForm.invalid" class="ion-margin-top">
+        {{ autoGuardado ? 'Actualizar Datos' : 'Registrar Auto' }}
+      </ion-button>
+      <ion-button expand="block" color="danger" (click)="eliminarDatosAuto()" *ngIf="autoGuardado" class="ion-margin-top">
+        Eliminar Datos del Auto
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
