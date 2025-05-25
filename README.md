@@ -1,5 +1,6 @@
 
 Gasto Móvil: ⛽📊
+
 ¡Bienvenido a Gasto Móvil! Esta es una aplicación vibrante y fácil de usar, construida con Ionic y Angular, diseñada para ayudarte a tomar el control de tus gastos de combustible. Olvídate de las hojas de cálculo y los recibos perdidos; con Gasto Móvil, ¡tendrás el poder de tu billetera de combustible en la palma de tu mano!
 
 ✨ Características Estrellas
