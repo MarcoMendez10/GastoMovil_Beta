@@ -1,0 +1,151 @@
+/* src/app/bencineras/bencineras.page.scss */
+
+// --- ESTILOS DEL ENCABEZADO (HEADER) ---
+
+ion-content {
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+
+
+.map-container-wrapper {
+  display: flex;
+  flex-direction: column; // Por defecto apilado en móviles
+  height: 100%; // Ocupa toda la altura disponible en ion-content
+  width: 100%;
+  overflow: hidden; // Previene scroll no deseado
+
+  // Estilos para pantallas grandes (desktop/tablet)
+  @media (min-width: 768px) {
+    flex-direction: row; // Mapa y panel lado a lado
+  }
+}
+
+.map-canvas {
+  flex: 1; // Ocupa todo el espacio disponible
+  height: 60vh; // Altura mínima para el mapa en móvil (60% del viewport height)
+  min-height: 300px; // Altura mínima absoluta
+  position: relative; // Para overlays
+  background-color: var(--ion-color-light); // Color de fondo mientras carga
+
+  @media (min-width: 768px) {
+    height: 100%; // Ocupa el 100% de la altura del contenedor principal
+    min-height: auto; // Quita altura mínima si está en row
+    flex-basis: 70%; // El mapa ocupa el 70% del ancho en pantallas grandes
+    max-width: 70%; // Asegura que no crezca más allá
+  }
+}
+
+.map-loading-overlay,
+.map-error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(var(--ion-background-color-rgb), 0.9); // Fondo semi-transparente
+  z-index: 10; // Asegura que esté sobre el mapa
+  color: var(--ion-text-color);
+
+  ion-spinner {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    color: var(--ion-color-primary);
+  }
+
+  p {
+    font-size: 1.1em;
+    text-align: center;
+    color: var(--ion-text-color);
+  }
+
+  ion-button {
+    margin-top: 15px;
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-primary-contrast);
+  }
+}
+
+
+.gas-station-panel {
+  flex: 1; // Ocupa el resto del espacio
+  background: var(--ion-card-background); // Fondo del panel
+  padding: 10px 0;
+  overflow-y: auto; // Permite scroll si hay muchas bencineras
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); // Sombra arriba en móvil
+  border-top-left-radius: 16px; // Bordes redondeados en la parte superior en móvil
+  border-top-right-radius: 16px;
+
+  @media (min-width: 768px) {
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); // Sombra a la izquierda en desktop
+    border-top-left-radius: 0; // Quita el redondeado en la parte superior
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 16px; // Redondeado en la parte inferior izquierda
+    flex-basis: 30%; // El panel ocupa el 30% del ancho
+    max-width: 30%; // Asegura que no crezca más allá
+  }
+
+  ion-list-header {
+    margin-bottom: 10px;
+    padding-left: 16px;
+    ion-label {
+      h2 {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: var(--ion-color-primary);
+      }
+      p {
+        font-size: 0.9em;
+        color: var(--ion-color-medium);
+      }
+    }
+  }
+
+  ion-item {
+    --background: var(--ion-card-background);
+    --inner-padding-end: 16px;
+    --padding-start: 16px;
+    --inner-border-width: 0 0 1px 0; // Borde inferior delgado
+    --inner-border-color: rgba(var(--ion-color-medium-rgb), 0.1);
+    
+    h3 {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: var(--ion-text-color);
+    }
+    p {
+      font-size: 0.9em;
+      color: var(--ion-color-medium);
+    }
+    .price-info {
+      margin-top: 5px;
+      font-weight: bold;
+      .price-value {
+        color: var(--ion-color-success); // Color para el precio
+        font-size: 1.2em;
+      }
+    }
+    .distance-info {
+      font-size: 0.85em;
+      color: var(--ion-color-medium);
+    }
+    ion-icon {
+      font-size: 1.5em;
+      color: var(--ion-color-secondary);
+    }
+  }
+}

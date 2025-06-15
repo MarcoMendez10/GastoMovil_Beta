@@ -1,9 +1,7 @@
-
-
 ion-content {
-  
+
   --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
-  
+
 }
 
 /* Estilos para el contenedor principal del formulario de registro */
@@ -63,7 +61,8 @@ ion-label {
   font-size: 0.95em;
   color: var(--ion-color-medium); // Color de la etiqueta
   font-weight: 500;
-  transform: translateY(5px); /* Ajusta la posición inicial de la etiqueta flotante si es necesario */
+  // transform: translateY(5px); /* Ajusta la posición inicial de la etiqueta flotante si es necesario */
+  // Quitamos o ajustamos translateY y confiamos más en el padding del input
 }
 
 /* Estilos para los inputs y el select */
@@ -75,14 +74,17 @@ ion-input, ion-select {
   // Borde inferior sutil para delimitar el campo
   border-bottom: 1.5px solid var(--ion-color-light-shade, #dcdcdc);
   margin-bottom: 0px; // No más margen si ya tenemos el borde inferior
-  padding-bottom: 4px; // Espacio entre el texto y el borde inferior
-  padding-top: 5px; /* Ajuste si la etiqueta flotante se superpone */
+  // --- CORRECCIÓN AQUÍ ---
+  padding-top: 15px; // Aumenta el padding superior para separar el label flotante del input
+  padding-bottom: 8px; // Aumenta el padding inferior para separar el texto del borde inferior
 }
 
 ion-select {
-  padding-top: 10px; // Asegura que el ion-select tenga espacio para el contenido
-  padding-bottom: 8px; // Espacio entre el contenido y el borde inferior
+  // --- CORRECCIÓN AQUÍ ---
+  padding-top: 10px; // Aumenta el padding superior para separar el label flotante del select
+  padding-bottom: 8px; // Aumenta el padding inferior para separar el contenido del borde inferior
 }
+
 
 /* Estilos para el botón de registro */
 ion-button[type="submit"] {
@@ -128,5 +130,8 @@ p.ion-margin-top {
   }
   ion-input, ion-select {
     font-size: 1em;
+    // --- CORRECCIÓN EN MEDIA QUERY ---
+    padding-top: 12px; // Ajuste para pantallas más pequeñas
+    padding-bottom: 6px;
   }
 }

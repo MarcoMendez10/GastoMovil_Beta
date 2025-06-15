@@ -1,13 +1,72 @@
-<ion-header [translucent]="true">
+<!-- src/app/bencineras/bencineras.page.html -->
+
+<ion-header>
   <ion-toolbar>
-    <ion-title>bencineras</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      <img src="assets/icon/Logo-Gasto-Movil07.png" alt="Logo Gasto Móvil" class="toolbar-logo">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="findMeOnMap()">
+         <span style="font-size: 36px; color: red; font-weight: bold;">📍</span> 
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">bencineras</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <!-- Contenedor principal para el mapa y el panel de información -->
+  <ion-content [fullscreen]="true">
+  <div class="map-container-wrapper">
+    <!-- Asegúrate de que este div existe y no está oculto por *ngIf -->
+    <div id="map" class="map-canvas">
+      <!-- Aquí puedes tener tus spinners o mensajes de carga/error -->
+      <div *ngIf="loadingMap" class="map-loading-overlay">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Cargando mapa...</p>
+      </div>
+      <div class="map-error-overlay" *ngIf="!loadingMap && !mapLoaded"> 
+        <p>No se pudo cargar el mapa. Verifica tu conexión a internet o la clave de API.</p>
+        <ion-button fill="outline" (click)="loadMap()">Reintentar</ion-button>
+      </div>
+    </div>
+
+    <!-- Panel Lateral de Información de Bencineras -->
+    <div class="gas-station-panel">
+      <ion-list lines="none">
+        <ion-list-header>
+          <ion-label>
+            <h2>Las más Baratas y Cercanas</h2>
+            <p *ngIf="userLocation">Ubicación actual: {{ userLocation.lat | number:'1.4-4' }}, {{ userLocation.lng | number:'1.4-4' }}</p>
+            <p *ngIf="!userLocation">Buscando ubicación...</p>
+          </ion-label>
+        </ion-list-header>
+
+        <div *ngIf="loadingStations" class="ion-text-center ion-padding">
+          <ion-spinner name="dots"></ion-spinner>
+          <p>Buscando bencineras...</p>
+        </div>
+
+        <div *ngIf="!loadingStations && filteredGasStations.length === 0 && userLocation" class="ion-text-center ion-padding">
+          <ion-icon name="alert-circle-outline" size="large" color="medium"></ion-icon>
+          <p>No se encontraron bencineras cercanas con los filtros aplicados.</p>
+          <ion-button fill="outline" (click)="loadGasStations()">Reintentar búsqueda</ion-button>
+        </div>
+
+        <ion-item *ngFor="let station of filteredGasStations" (click)="centerMapOnStation(station)" button>
+          <ion-label>
+            <h3>{{ station.name }}</h3>
+            <p>{{ station.address }}</p>
+            <p class="price-info">
+              Precio: <span class="price-value">${{ station.price | number:'1.0-0' }}</span>/Litro ({{ station.fuelType }})
+            </p>
+            <p class="distance-info">Distancia: {{ station.distance | number:'1.0-1' }} km</p>
+          </ion-label>
+          <ion-icon slot="end" name="navigate-outline"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>

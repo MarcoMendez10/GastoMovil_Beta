@@ -1,0 +1,95 @@
+<!-- src/app/configuracion/configuracion.page.html -->
+
+<ion-header>
+  <ion-toolbar class="centered-logo-toolbar"> <!-- CLASE AÑADIDA AQUÍ -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      <img src="assets/icon/Logo-Gasto-Movil07.png" alt="Logo Gasto Móvil" class="toolbar-logo">
+    </ion-title>
+    <ion-buttons slot="end">
+      <!-- Si necesitas botones aquí, deberían ir en este slot="end" -->
+      <!-- Ejemplo: -->
+      <!-- <ion-button (click)="someAction()"><ion-icon name="ellipsis-vertical"></ion-icon></ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Sección de Notificaciones -->
+  <ion-list lines="full" class="settings-card">
+    <ion-list-header>
+      <ion-label>Notificaciones</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon slot="start" name="notifications-outline"></ion-icon>
+      <ion-label>Habilitar Notificaciones</ion-label>
+      <ion-toggle slot="end" [(ngModel)]="notificationsEnabled" (ionChange)="toggleNotifications()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <!-- Sección de Datos y Almacenamiento -->
+  <ion-list lines="full" class="settings-card ion-margin-top">
+    <ion-list-header>
+      <ion-label>Datos y Almacenamiento</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon slot="start" name="wifi-outline"></ion-icon>
+      <ion-label>Sincronizar solo con Wi-Fi</ion-label>
+      <ion-toggle slot="end" [(ngModel)]="syncWifiOnly" (ionChange)="toggleSyncWifi()"></ion-toggle>
+    </ion-item>
+
+    <ion-item button detail="true" (click)="clearCache()">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      <ion-label>Limpiar Caché de la Aplicación</ion-label>
+      <ion-note slot="end">({{ cacheSize }})</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <!-- Sección de Seguridad -->
+  <ion-list lines="full" class="settings-card ion-margin-top">
+    <ion-list-header>
+      <ion-label>Seguridad</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon slot="start" name="finger-print-outline"></ion-icon>
+      <ion-label>Autenticación Biométrica (Face ID/Huella)</ion-label>
+      <ion-toggle slot="end" [(ngModel)]="biometricEnabled" (ionChange)="toggleBiometrics()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <!-- Sección de Permisos de la Aplicación -->
+  <ion-list lines="full" class="settings-card ion-margin-top">
+    <ion-list-header>
+      <ion-label>Permisos de la Aplicación</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon slot="start" name="location-outline"></ion-icon>
+      <ion-label>Ubicación</ion-label>
+      <ion-note slot="end" [color]="locationPermission ? 'success' : 'danger'">
+        {{ locationPermission ? 'Permitido' : 'Denegado' }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="camera-outline"></ion-icon>
+      <ion-label>Cámara</ion-label>
+      <ion-note slot="end" [color]="cameraPermission ? 'success' : 'danger'">
+        {{ cameraPermission ? 'Permitido' : 'Denegado' }}
+      </ion-note>
+    </ion-item>
+
+    <!-- Un botón para guiar al usuario a los ajustes del sistema (funcionalidad indicativa) -->
+    <ion-item button (click)="openAppSettings()">
+      <ion-icon slot="start" name="cog-outline"></ion-icon>
+      <ion-label>Abrir Ajustes del Sistema</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

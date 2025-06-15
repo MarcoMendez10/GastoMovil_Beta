@@ -1,0 +1,53 @@
+.contact-info-section {
+  padding: 10px 16px; // Un poco de padding
+  margin-top: 20px; // Espacio superior para separarlo de la lista de navegación
+  background-color: #f0f0f0; // ¡Fondo gris claro para el panel de contacto!
+  border-top: 1px solid rgba(0, 0, 0, 0.1); // Una línea divisoria sutil para el gris
+  border-radius: 8px; // Opcional: para darle un toque más suave
+  margin-left: 16px; // Ajusta el margen para que no se pegue al borde del menú
+  margin-right: 16px; // Ajusta el margen
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); // Sombra sutil para darle relieve
+}
+
+.contact-info-title {
+  color: rgb(0, 0, 0);
+  font-size: 0.9em; // Hacer el título más pequeño
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.contact-info-item {
+  --background: transparent; // Fondo transparente para los ítems
+  color: rgba(0, 0, 0, 0.7); // Color de texto más claro para ser "pequeño"
+  font-size: 0.8em; // Hacer el texto más pequeño
+  --padding-start: 0; // Quitar padding inicial extra si hay
+  --inner-padding-end: 0; // Quitar padding final
+  --border-width: 0; // Eliminar bordes inferiores si los hay
+  margin-bottom: 5px; // Espacio entre los ítems de contacto
+}
+
+.contact-info-item ion-icon {
+  color: rgba(0, 0, 0, 0.7); // Color de los iconos
+  font-size: 1em; // Tamaño de los iconos, un poco más pequeños
+  margin-right: 10px; // Espacio entre icono y texto
+}
+
+/* Estilo para el botón de cerrar sesión (asegúrate de que este esté definido) */
+.logout-item {
+  margin-top: 30px;
+  color: var(--ion-color-danger);
+  ion-icon {
+    color: var(--ion-color-danger);
+  }
+}
+
+// Estilos para el texto de bienvenida en el menú
+ion-menu {
+  .welcome-message {
+    text-align: center;
+    
+    font-size: 2.5em;
+    // color: var(--ion-color-primary); 
+  }
+}

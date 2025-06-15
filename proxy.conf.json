@@ -1,0 +1,12 @@
+
+{
+  "/api-cne": {
+    "target": "https://api.cne.cl",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api-cne": ""
+    },
+    "logLevel": "debug"
+  }
+}

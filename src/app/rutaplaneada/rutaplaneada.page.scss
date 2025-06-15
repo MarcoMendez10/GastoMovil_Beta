@@ -1,0 +1,154 @@
+/* src/app/home/home.page.scss */
+
+// Estilos para el header y toolbar principal (TOOLBAR BLANCO)
+ion-header {
+  ion-toolbar {
+    --background: #ffffff; // Fondo del toolbar blanco
+    color: var(--ion-color-dark, #000000); // Texto y botones oscuros para contraste
+  }
+}
+
+// Estilos para el logo en el toolbar (asegura que se centre)
+.toolbar-logo {
+  height: 36px; // Ajusta la altura según sea necesario
+  width: auto; // Mantener la proporción
+  display: block; // Asegura que la imagen sea un bloque para centrarla dentro del ion-title
+  margin: 0 auto; // Centra la imagen horizontalmente dentro del ion-title
+}
+
+// ESTILO PARA EL FONDO DE ION-CONTENT (Mantiene tu imagen oscura, no se modifica)
+ion-content {
+  
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+  
+}
+
+
+// ESTILOS GLOBALES DE CENTRADO Y COLOR DE LETRA (para contenido directo en ion-content)
+.ion-content { // Aplicar a la clase ion-content del host o globalmente
+  --color: white; // Color de texto por defecto para todo el contenido directamente en ion-content
+  text-align: center; // Centra todo el texto
+}
+
+
+// ESTILOS PARA LA SECCIÓN DE BIENVENIDA (TEXTO BLANCO Y CENTRADO)
+.welcome-section {
+  padding: 20px 0;
+  // text-align: center; // Ya cubierto por .ion-content
+  h1 {
+    font-size: 2em;
+    color: white; // Título blanco
+    margin-bottom: 10px;
+  }
+  p {
+    color: #e0e0e0; // Párrafo gris muy claro
+    font-size: 1.1em;
+  }
+}
+
+.hero-image {
+  margin-top: 20px;
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.863);
+}
+
+// ESTILOS PARA LAS TARJETAS (Instrucciones y Servicios)
+.instructions-card, .services-card {
+  margin: 20px auto; // Centra las tarjetas horizontalmente
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  background: var(--ion-color-light, #ffffff); // Fondo de las tarjetas claro (blanco por defecto)
+  text-align: center; // Centra el texto dentro de las tarjetas
+}
+
+ion-card-title {
+  color: var(--ion-color-primary, #3880ff); // Títulos de tarjeta en color primario (oscuro para contraste)
+  font-weight: bold;
+  font-size: 1.3em;
+  // text-align: center; // Ya cubierto por el padre .instructions-card o .services-card
+}
+
+// Estilos específicos para la lista de instrucciones (TEXTO OSCURO DENTRO DE TARJETA CLARA)
+.instructions-card ion-item {
+  --background: transparent; // Fondo transparente para los ítems dentro de la tarjeta
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  padding-bottom: 10px; // Espacio entre ítems de instrucciones
+  text-align: left; // Alinea el texto de los items a la izquierda para mejor lectura
+  justify-content: flex-start; // Alinea el contenido al inicio
+}
+
+.instructions-card ion-item ion-label {
+  text-align: left; // Asegura que el label esté alineado a la izquierda
+}
+
+.instructions-card ion-item h3 {
+  color: var(--ion-color-dark, #000000); // Título de item oscuro para contraste con fondo de tarjeta claro
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.instructions-card ion-item p {
+  color: var(--ion-color-medium, #666666); // Párrafo de item oscuro para contraste
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.instructions-card ion-icon {
+  font-size: 2em;
+  margin-right: 15px;
+  min-width: 30px; // Asegura que el icono tenga un ancho mínimo para alineación
+}
+
+// Estilos para los botones de servicios (TEXTO OSCURO DENTRO DE TARJETA CLARA)
+.services-card ion-button {
+  --border-radius: 8px;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: none; // Evita mayúsculas automáticas
+  height: 60px; // Altura fija para botones de servicio
+  color: var(--ion-color-dark, #000000); // Color del texto del botón
+  ion-icon {
+    font-size: 1.6em;
+    margin-bottom: 5px; // Espacio entre icono y texto
+  }
+}
+
+// Media query para dispositivos más pequeños (botones de servicio)
+@media (max-width: 576px) {
+  .services-card ion-button {
+    font-size: 0.8em;
+    height: 50px;
+    ion-icon {
+      font-size: 1.4em;
+    }
+  }
+}
+
+// Estilos para el botón de "Empezar" (TEXTO BLANCO SOBRE FONDO OSCURO)
+.start-button-section {
+  padding: 20px 0 40px;
+  text-align: center; // Centra el botón
+}
+
+.start-button-section ion-button {
+  --border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  height: 55px;
+  text-transform: uppercase;
+  color: white; // Texto del botón blanco
+}
+
+// Asegurar que el mensaje de error también sea legible sobre fondo oscuro
+ion-text[color="danger"] {
+  color: var(--ion-color-danger-shade, #dc3545) !important; // Rojo para el error, asegúrate de que contraste
+  background: rgba(0, 0, 0, 0.7); // Un pequeño fondo para que el texto resalte
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block; // Para que el padding y background se apliquen correctamente
+}

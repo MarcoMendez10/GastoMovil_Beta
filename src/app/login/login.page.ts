@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule, AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router'; // <-- ¡Añade RouterModule aquí!
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -11,7 +11,12 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, ReactiveFormsModule]
+  imports: [
+    IonicModule,
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule 
+  ]
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
@@ -38,11 +43,9 @@ export class LoginPage implements OnInit {
     this.loginForm.markAllAsTouched();
 
     if (this.loginForm.valid) {
-      // ¡AQUÍ ESTÁ LA CORRECCIÓN!
-      const { correo, contrasena } = this.loginForm.value; // Desestructuras el objeto para obtener las propiedades
-      console.log('login.page.ts: Intentando iniciar sesión con:', { correo, contrasena }); // Nuevo log para verificar
+      const { correo, contrasena } = this.loginForm.value;
+      console.log('login.page.ts: Intentando iniciar sesión con:', { correo, contrasena });
 
-      // Pasa el correo y la contraseña como argumentos individuales
       if (this.authService.login(correo, contrasena)) {
         const alert = await this.alertController.create({
           header: 'Éxito',

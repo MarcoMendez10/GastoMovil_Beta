@@ -1,0 +1,83 @@
+/* src/app/configuracion/configuracion.page.scss */
+
+
+
+// --- ESTILOS DEL ENCABEZADO (HEADER) ---
+ion-content {
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+// --- ESTILOS DE LAS LISTAS (SECCIONES DE CONFIGURACIÓN) ---
+.settings-card {
+  background: var(--ion-card-background, #ffffff); /* Fondo opaco, con fallback a blanco */
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra ligeramente más pronunciada */
+  margin: 15px auto; /* Centra horizontalmente y añade margen vertical */
+  max-width: 500px; /* Ancho máximo para mejor legibilidad */
+  width: calc(100% - 30px); /* Ajusta el ancho para dejar un padding lateral */
+  padding: 10px 0;
+  overflow: hidden; /* Asegura que el contenido respete los bordes redondeados */
+
+  ion-list-header {
+    ion-label {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: var(--ion-color-primary);
+      padding-bottom: 10px;
+      padding-left: 16px;
+    }
+  }
+
+  ion-item {
+    --background: var(--ion-card-background, #ffffff); /* Asegura que cada item también sea opaco */
+    --inner-border-width: 0 0 1px 0;
+    --inner-border-color: rgba(var(--ion-color-medium-rgb), 0.15);
+    color: var(--ion-text-color);
+
+    ion-icon[slot="start"] {
+      color: var(--ion-color-medium);
+      font-size: 1.3em;
+    }
+
+    ion-label {
+      font-size: 1em;
+      color: var(--ion-text-color);
+    }
+
+    ion-note {
+      font-size: 0.9em;
+      color: var(--ion-color-medium);
+    }
+
+    ion-toggle {
+      --handle-background-checked: var(--ion-color-primary);
+      --background-checked: var(--ion-color-primary-tint);
+    }
+  }
+  ion-item:last-child {
+    --inner-border-width: 0;
+  }
+}
+
+// --- Responsive: Ajustes para pantallas pequeñas ---
+@media (max-width: 576px) {
+  .settings-card {
+    margin: 15px 10px; /* Margen reducido en pantallas pequeñas */
+    border-radius: 12px;
+    width: calc(100% - 20px); /* Ocupa más ancho en móviles */
+  }
+  ion-toolbar.centered-logo-toolbar {
+    ion-title {
+      max-width: calc(100% - 80px); /* Reduce el max-width del título en móviles para los botones */
+    }
+  }
+}

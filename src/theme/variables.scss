@@ -1,2 +1,192 @@
-// For information on how to create your own theme, please see:
+/* src/theme/variables.scss */
+
+// Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+  /** primary **/
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56,128,255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8aff;
+
+  /** secondary **/
+  --ion-color-secondary: #3dc2ff;
+  --ion-color-secondary-rgb: 61,194,255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #36abe0;
+  --ion-color-secondary-tint: #50c8ff;
+
+  /** tertiary **/
+  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary-rgb: 82,96,255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255,255,255;
+  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-tint: #6370ff;
+
+  /** success **/
+  --ion-color-success: #2dd36f;
+  --ion-color-success-rgb: 45,211,111;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255,255,255;
+  --ion-color-success-shade: #28ba62;
+  --ion-color-success-tint: #42d77d;
+
+  /** warning **/
+  --ion-color-warning: #ffc409;
+  --ion-color-warning-rgb: 255,196,9;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0,0,0;
+  --ion-color-warning-shade: #e0ac08;
+  --ion-color-warning-tint: #ffca22;
+
+  /** danger **/
+  --ion-color-danger: #eb445a;
+  --ion-color-danger-rgb: 235,68,90;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255,255,255;
+  --ion-color-danger-shade: #ce3c4f;
+  --ion-color-danger-tint: #ed576b;
+
+  /** dark (para tema CLARO, este es el color más oscuro de la paleta) **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34,36,40;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255,255,255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146,148,156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255,255,255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  /** light (para tema CLARO, este es el color más claro de la paleta) **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244,245,248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0,0,0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+
+  // Backgrounds, text, toolbars, cards, items for default (light) theme
+  --ion-background-color: var(--ion-color-light); 
+  --ion-background-color-rgb: var(--ion-color-light-rgb);
+  --ion-text-color: var(--ion-color-dark); 
+  --ion-text-color-rgb: var(--ion-color-dark-rgb);
+
+  --ion-toolbar-background: var(--ion-color-light);
+  --ion-toolbar-border-color: rgba(var(--ion-color-dark-rgb), 0.1);
+  --ion-toolbar-color: var(--ion-color-dark);
+
+  --ion-card-background: #ffffff; // Usually pure white for cards in light mode
+  --ion-card-color: var(--ion-color-dark);
+
+  --ion-item-background: #ffffff; // Usually pure white for items in light mode
+  --ion-item-color: var(--ion-color-dark);
+  --ion-item-border-color: rgba(var(--ion-color-dark-rgb), 0.1); // Item border
+}
+
+// --- TEMA OSCURO ---
+// Añade esta clase al body para activar el tema oscuro.
+body.ion-color-theme-dark {
+  /** primary **/
+  --ion-color-primary: #528cff; /* Un azul que se ve bien en oscuro */
+  --ion-color-primary-rgb: 82, 140, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #487be0;
+  --ion-color-primary-tint: #6398ff;
+
+  /** secondary **/
+  --ion-color-secondary: #0ad9ea; /* Un cian que se ve bien en oscuro */
+  --ion-color-secondary-rgb: 10, 217, 234;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #09c0d0;
+  --ion-color-secondary-tint: #23dde6;
+
+  /** tertiary **/
+  --ion-color-tertiary: #a673ff; /* Un morado que se ve bien en oscuro */
+  --ion-color-tertiary-rgb: 166, 115, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #9265e0;
+  --ion-color-tertiary-tint: #af7eff;
+
+  /** success **/
+  --ion-color-success: #69eb6e;
+  --ion-color-success-rgb: 105, 235, 110;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #5cb260;
+  --ion-color-success-tint: #77ef79;
+
+  /** warning **/
+  --ion-color-warning: #ffd740;
+  --ion-color-warning-rgb: 255, 215, 64;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0be38;
+  --ion-color-warning-tint: #ffe051;
+
+  /** danger **/
+  --ion-color-danger: #f04141;
+  --ion-color-danger-rgb: 240, 65, 65;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d43838;
+  --ion-color-danger-tint: #f25252;
+
+  /** dark (Para el tema oscuro, este es el color más OSCURO de la paleta) **/
+  --ion-color-dark: #f8f8f8; /* Un blanco casi puro para texto y elementos de alto contraste */
+  --ion-color-dark-rgb: 248, 248, 248;
+  --ion-color-dark-contrast: #000000;
+  --ion-color-dark-contrast-rgb: 0,0,0;
+  --ion-color-dark-shade: #dbdbdb;
+  --ion-color-dark-tint: #ffffff;
+
+  /** medium (Para el tema oscuro, un gris intermedio) **/
+  --ion-color-medium: #94949c;
+  --ion-color-medium-rgb: 148, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255,255,255;
+  --ion-color-medium-shade: #818289;
+  --ion-color-medium-tint: #9ea0a8;
+
+  /** light (Para el tema oscuro, este es el color más CLARO de la paleta) **/
+  --ion-color-light: #222428; /* Un gris oscuro para elementos sutiles */
+  --ion-color-light-rgb: 34, 36, 40;
+  --ion-color-light-contrast: #ffffff;
+  --ion-color-light-contrast-rgb: 255,255,255;
+  --ion-color-light-shade: #1e2023;
+  --ion-color-light-tint: #383a3e;
+
+  // Backgrounds para tema oscuro
+  --ion-background-color: #121212; // Fondo general muy oscuro
+  --ion-background-color-rgb: 18, 18, 18;
+  --ion-text-color: var(--ion-color-dark); // Texto principal claro (usando la variable 'dark' de la paleta oscura)
+  --ion-text-color-rgb: var(--ion-color-dark-rgb);
+
+  // Toolbar para tema oscuro (ligeramente más claro que el fondo)
+  --ion-toolbar-background: #1f1f1f;
+  --ion-toolbar-border-color: rgba(var(--ion-color-dark-rgb), 0.1);
+  --ion-toolbar-color: var(--ion-color-dark);
+
+  // Card para tema oscuro (un gris más oscuro que el fondo para mayor profundidad)
+  --ion-card-background: #1f1f1f; 
+  --ion-card-color: var(--ion-color-dark);
+
+  // Item para tema oscuro (mismo que card o ligeramente diferente)
+  --ion-item-background: #1f1f1f;
+  --ion-item-color: var(--ion-color-dark);
+  --ion-item-border-color: rgba(var(--ion-color-dark-rgb), 0.1);
+}

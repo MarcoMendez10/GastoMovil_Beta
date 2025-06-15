@@ -1,71 +1,136 @@
+<!-- src/app/home/home.page.html -->
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button> </ion-buttons>
-    <ion-title></ion-title>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/icon/Logo-Gasto-Movil08.png" alt="Logo Gasto Móvil" class="toolbar-logo">
+    </ion-title>
+    
+    <ion-buttons slot="end">
+      <!-- Buscador en la esquina derecha para el MENÚ -->
+      <!-- Usa la clase personalizada para los estilos -->
+      <ion-searchbar class="small-right-searchbar" placeholder="Buscar menú..." (ionInput)="filterMenuItemsInMenu($event)" debounce="500"></ion-searchbar>
+
+      <!-- Botón para la configuración del tema -->
+      <ion-button (click)="presentThemePopover($event)">
+        <!-- SVG del icono de configuración de Bootstrap -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+        </svg>
+      </ion-button>
+      <!-- BOTÓN para Notificaciones con SVG de Bootstrap! -->
+      <ion-button (click)="scheduleTestNotification()">
+        <!-- SVG del icono de campana de Bootstrap -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+       </svg>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Inicio</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <div id="container">
-    <p>¡Bienvenido a Gasto Móvil!</p>
-    </div>
-</ion-content>
-
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Perfil de Usuario</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="assets/img/default-avatar.png" alt="Avatar por defecto"> </ion-avatar>
-        <ion-label>
-          <h2>{{ usuario.nombre }} {{ usuario.apellido }}</h2> <p>{{ usuario.correo }}</p>
-          <p>{{ usuario.telefono }}</p>
-        </ion-label>
-      </ion-item>
-
-      <ion-menu-toggle autoHide="false">
-        <ion-item routerLink="/app/estadisticas" routerDirection="forward">
-          <ion-icon slot="start" name="stats-chart"></ion-icon>
-          <ion-label>Estadísticas</ion-label>
-        </ion-item>
-        <ion-item routerLink="/app/bencineras" routerDirection="forward">
-          <ion-icon slot="start" name="business"></ion-icon>
-          <ion-label>Bencineras</ion-label>
-        </ion-item>
-        <ion-item routerLink="/app/rutaplaneada" routerDirection="forward">
-          <ion-icon slot="start" name="map"></ion-icon>
-          <ion-label>Ruta Planeada</ion-label>
-        </ion-item>
-        <ion-item routerLink="/app/historial" routerDirection="forward">
-          <ion-icon slot="start" name="time"></ion-icon>
-          <ion-label>Historial</ion-label>
-        </ion-item>
-       <ion-menu-toggle autoHide="false">
-            <ion-item routerLink="/acerca-de" routerDirection="forward">
-            <ion-icon slot="start" name="information-circle"></ion-icon>
-            <ion-label>Acerca de</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-        <ion-item button (click)="cerrarSesion()">
-          <ion-icon slot="start" name="log-out"></ion-icon>
-          <ion-label>Cerrar Sesión</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<div class="ion-page" id="main-content">
+  <div class="welcome-section ion-text-center">
+    <h1>¡Bienvenido a Gasto Móvil! 👋</h1>
+    <p>Tu aliado inteligente para controlar y optimizar tus gastos de combustible.</p>
   </div>
+
+  <ion-card class="instructions-card">
+    <ion-card-header>
+      <ion-card-title>¿Cómo Usar Gasto Móvil?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-icon slot="start" name="receipt-outline" color="primary"></ion-icon>
+          <ion-label>
+            <h3>1. Registra tus Recargas</h3>
+            <p>Ingresa fácilmente cada vez que cargues combustible: cantidad, precio y odómetro.</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="stats-chart-outline" color="secondary"></ion-icon>
+          <ion-label>
+            <h3>2. Visualiza tus Estadísticas</h3>
+            <p>Obtén gráficos y reportes claros sobre tu consumo, rendimiento y costos.</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="map-outline" color="tertiary"></ion-icon>
+          <ion-label>
+            <h3>3. Planifica tus Rutas</h3>
+            <p>Calcula y optimiza tus viajes, encontrando las bencineras más cercanas y convenientes.</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="wallet-outline" color="success"></ion-icon>
+          <ion-label>
+            <h3>4. Ahorra Dinero</h3>
+            <p>Identifica patrones de gasto y toma decisiones informadas para reducir tu presupuesto.</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="services-card">
+    <ion-card-header>
+      <ion-card-title>Nuestros Servicios Clave</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <!-- Estos botones seguirán siendo estáticos ya que el buscador es para el menú -->
+          <ion-col size="6" size-md="4">
+            <ion-button expand="block" fill="clear" routerLink="/estadisticas">
+              <ion-icon slot="start" name="bar-chart"></ion-icon>
+              Estadísticas
+            </ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4">
+            <ion-button expand="block" fill="clear" routerLink="/bencineras">
+              <ion-icon slot="start" name="gas-pump"></ion-icon>
+              Bencineras
+            </ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4">
+            <ion-button expand="block" fill="clear" routerLink="/rutaplaneada">
+              <ion-icon slot="start" name="navigate"></ion-icon>
+              Ruta Planeada
+            </ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4">
+            <ion-button expand="block" fill="clear" routerLink="/calculadora">
+              <ion-icon slot="start" name="calculator"></ion-icon>
+              Calculadora
+            </ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4">
+            <ion-button expand="block" fill="clear" routerLink="/historial">
+              <ion-icon slot="start" name="time"></ion-icon>
+              Historial
+            </ion-button>
+          </ion-col>
+          <ion-col size="6" size-md="4">
+            <ion-button expand="block" fill="clear" routerLink="/mi-auto">
+              <ion-icon slot="start" name="car"></ion-icon>
+              Mi Auto
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="start-button-section ion-margin-top ion-text-center">
+    <ion-button expand="block" size="large" routerLink="/nueva-recarga">
+      <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+      ¡Empezar a Registrar un Gasto!
+    </ion-button>
+  </div>
+
+</ion-content>

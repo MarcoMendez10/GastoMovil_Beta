@@ -1,0 +1,161 @@
+// --- ESTILOS DEL ENCABEZADO (HEADER) ---
+
+ion-content {
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+
+
+// --- SECCIONES PRINCIPALES: Aplicar ancho máximo y centrar ---
+// Asegura que estas secciones se centren y no se extiendan más allá del ancho deseado.
+.profile-picture-section,
+ion-list,
+ion-button[expand="block"] { // También los botones block, para que respeten el ancho
+  width: 100%; // Ocupa el 100% del espacio disponible hasta el max-width
+  max-width: 500px; // *** REDUCIDO PARA QUE SEA MÁS PEQUEÑO Y COMPACTO ***
+  margin-left: auto; // Centra el elemento
+  margin-right: auto; // Centra el elemento
+  padding: 0 15px; // Asegura un padding interno para el contenido y evita que se pegue a los bordes
+}
+
+
+// --- SECCIÓN DE FOTO DE PERFIL ---
+.profile-picture-section {
+  padding-top: 30px;
+  padding-bottom: 25px; // Ajustado para mejor espaciado
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px; // Espacio inferior
+
+  .profile-avatar {
+    width: 120px; // Ajustado a un tamaño un poco más compacto
+    height: 120px;
+    margin-bottom: 15px;
+    border: 4px solid var(--ion-color-primary);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1); // Sombra más sutil
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  ion-button {
+    --color: var(--ion-color-medium);
+    font-size: 0.9em; // Ligeramente más pequeño
+    margin-top: 5px;
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+}
+
+// --- ESTILOS DE LAS LISTAS (FORMULARIOS) ---
+ion-list {
+  background: var(--ion-card-background);
+  border-radius: 12px; // Ligeramente menos redondeado para más compacticidad
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); // Sombra más sutil
+  margin-bottom: 25px; // Espacio entre las listas
+  padding: 10px 0;
+
+  ion-list-header {
+    ion-label {
+      font-size: 1.15em; // Ligeramente más pequeño
+      font-weight: bold;
+      color: var(--ion-color-primary);
+      padding-bottom: 8px; // Reducido
+      padding-left: 16px;
+    }
+  }
+
+  ion-item {
+    --background: var(--ion-card-background);
+    --inner-border-width: 0 0 1px 0;
+    --inner-border-color: rgba(var(--ion-color-medium-rgb), 0.1); // Borde aún más sutil
+    color: var(--ion-text-color);
+
+    ion-label {
+      color: var(--ion-color-medium);
+      font-size: 0.88em; // Ligeramente más pequeño
+      font-weight: 500;
+      margin-bottom: 3px; // Reducido
+    }
+
+    ion-input {
+      --padding-start: 0;
+      font-size: 1em; // Ajustado
+      color: var(--ion-text-color);
+      
+      &::placeholder {
+        color: var(--ion-color-medium);
+        opacity: 0.6; // Menos opacidad
+      }
+    }
+
+    ion-note {
+      font-size: 0.78em; // Ligeramente más pequeño
+      margin-top: 3px; // Reducido
+      padding-bottom: 3px; // Reducido
+    }
+  }
+  ion-item:last-child {
+    --inner-border-width: 0;
+  }
+}
+
+// --- ESTILOS DE LOS BOTONES DE ACCIÓN ---
+ion-button[expand="block"] {
+  --border-radius: 8px; // Ligeramente menos redondeado
+  font-weight: bold;
+  height: 38px; // Ligeramente más pequeño
+  margin: 3px 4px; // Márgenes ajustados
+  font-size: 1em; // Ligeramente más pequeño
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  &.ion-color-primary {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-primary-contrast);
+    box-shadow: 0 3px 8px rgba(var(--ion-color-primary-rgb), 0.25); // Sombra más sutil
+  }
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); // Sombra activa más sutil
+  }
+}
+
+// --- Responsive: Ajustes para pantallas pequeñas ---
+@media (max-width: 576px) {
+  // En móviles, permitimos que ocupe casi todo el ancho, pero con padding a los lados
+  .profile-picture-section,
+  ion-list,
+  ion-button[expand="block"] {
+    max-width: none; // No aplica max-width en móviles, usa el 100% - padding
+    padding: 0 10px; // Padding lateral para que no se pegue a los bordes
+  }
+
+  .profile-picture-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  ion-list {
+    margin-bottom: 20px;
+    border-radius: 10px; // Aún más compacto
+  }
+  ion-button[expand="block"] {
+    margin: 10px 10px;
+    height: 45px; // Botones aún más pequeños en móviles
+    font-size: 0.95em;
+  }
+}

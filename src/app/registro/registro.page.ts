@@ -1,16 +1,21 @@
-// src/app/registro/registro.page.ts (solo las partes relevantes)
+// src/app/registro/registro.page.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule, AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, ReactiveFormsModule]
+  imports: [
+    IonicModule,
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule 
+  ]
 })
 export class RegistroPage implements OnInit {
   registroForm: FormGroup;
@@ -59,9 +64,8 @@ export class RegistroPage implements OnInit {
         return;
       }
 
-      // Añadir el nuevo usuario con todos los campos
       usuarios.push({ correo, contrasena, nombre, apellido, telefono, genero });
-      localStorage.setItem('usuarios', JSON.stringify(usuarios)); // <-- ¡Aquí se guarda!
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
       console.log('RegistroPage: Usuario registrado y guardado en localStorage:', { correo, contrasena });
 
       const alert = await this.alertController.create({
@@ -71,7 +75,7 @@ export class RegistroPage implements OnInit {
       });
       await alert.present();
 
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/login'); // Esto ya estaba bien
     } else {
       const alert = await this.alertController.create({
         header: 'Error de Validación',
@@ -83,6 +87,6 @@ export class RegistroPage implements OnInit {
   }
 
   goToLogin() {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login'); // Esto ya estaba bien
   }
 }

@@ -1,34 +1,42 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Versión Pro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding ion-text-center">
   <div class="pro-content">
-    <ion-icon name="trophy-outline" class="pro-main-icon"></ion-icon> <h1>¡Desbloquea el Poder Total de Gasto Móvil!</h1>
-    <p>La **Versión Pro** está diseñada para llevar tu control de gastos de combustible al siguiente nivel.</p>
+    <ion-icon name="trophy-outline" class="pro-main-icon"></ion-icon>
+    <h1>¡Desbloquea el Poder Total de Gasto Móvil!</h1>
+    <p>La Versión Pro está diseñada para llevar tu control de gastos de combustible al siguiente nivel.</p>
+
+    <div class="pro-image-container ion-margin-vertical">
+      <img src="assets/img/Logo-Gasto-Movil06.png" alt="Funciones Pro">
+    </div>
 
     <ion-list lines="none" class="feature-list">
       <ion-item>
         <ion-icon slot="start" name="analytics" color="primary"></ion-icon>
-        <ion-label>Estadísticas Avanzadas de Consumo</ion-label>
+        <ion-label>📈 Estadísticas Avanzadas de Consumo</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon slot="start" name="map-outline" color="primary"></ion-icon>
-        <ion-label>Integración con Mapas y Rutas Optimizadas</ion-label>
+        <ion-label>🗺️ Integración con Mapas y Rutas Optimizadas</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon slot="start" name="notifications" color="primary"></ion-icon>
-        <ion-label>Alertas Personalizadas de Precio de Combustible</ion-label>
+        <ion-label>⛽ Alertas Personalizadas de Precio de Combustible</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon slot="start" name="cloud-done" color="primary"></ion-icon>
-        <ion-label>Sincronización en la Nube y Copias de Seguridad</ion-label>
+        <ion-label>☁️ Sincronización en la Nube y Copias de Seguridad</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon slot="start" name="person-circle" color="primary"></ion-icon>
-        <ion-label>Soporte Prioritario</ion-label>
+        <ion-label>🛠️ Soporte Prioritario</ion-label>
       </ion-item>
     </ion-list>
 
@@ -42,6 +50,17 @@
     <p class="ion-text-center ion-margin-top contact-info">
       Mientras tanto, si tienes ideas o sugerencias, ¡contáctanos!
     </p>
+
+    <div class="chatbot-container ion-margin-top">
+      <h3>¿Tienes alguna pregunta?</h3>
+      <div class="chatbot-window">
+        <div class="chatbot-messages">
+          </div>
+        <div class="chatbot-input">
+          <ion-input placeholder="Escribe tu pregunta..."></ion-input>
+          <ion-button>Enviar</ion-button>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
-

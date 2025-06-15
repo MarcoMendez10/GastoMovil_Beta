@@ -1,15 +1,15 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard'; // <-- ¡IMPORTA EL AUTHGUARD!
+import { AuthGuard } from './guards/auth.guard'; // ¡Importa el AuthGuard!
 
 export const routes: Routes = [
-  // Ruta por defecto: redirige a 'login' si no hay otra ruta
+  
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  // Rutas de autenticación (NO protegidas por el guardia)
+  
   {
     path: 'login',
     loadComponent: () => import('./login/login.page').then(m => m.LoginPage)
@@ -18,63 +18,74 @@ export const routes: Routes = [
     path: 'registro',
     loadComponent: () => import('./registro/registro.page').then(m => m.RegistroPage)
   },
-  // Rutas principales de la aplicación (¡AHORA PROTEGIDAS POR EL GUARDIA!)
+  
   {
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'calculadora',
     loadComponent: () => import('./calculadora/calculadora.page').then(m => m.CalculadoraPage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'pro',
     loadComponent: () => import('./pro/pro.page').then(m => m.ProPage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'tabs', // Si tienes un setup con pestañas (tabs)
     loadComponent: () => import('./tabs/tabs.page').then(m => m.TabsPage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'estadisticas',
     loadComponent: () => import('./estadisticas/estadisticas.page').then(m => m.EstadisticasPage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'bencineras',
     loadComponent: () => import('./bencineras/bencineras.page').then(m => m.BencinerasPage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'rutaplaneada',
     loadComponent: () => import('./rutaplaneada/rutaplaneada.page').then(m => m.RutaplaneadaPage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'historial',
     loadComponent: () => import('./historial/historial.page').then(m => m.HistorialPage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'acerca-de',
     loadComponent: () => import('./acercade/acercade.page').then(m => m.AcercaDePage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
     path: 'nueva-carga',
     loadComponent: () => import('./nueva-carga/nueva-carga.page').then(m => m.NuevaCargaPage),
-    canActivate: [AuthGuard] // <-- ¡Protege esta ruta!
+    canActivate: [AuthGuard]
   },
   {
-    path: 'mi-auto', // ¡La ruta que te estaba causando problemas!
+    path: 'mi-auto',
     loadComponent: () => import('./mi-auto/mi-auto.page').then( m => m.MiAutoPage),
-    canActivate: [AuthGuard] // <-- ¡AHORA ESTÁ PROTEGIDA!
+    canActivate: [AuthGuard]
   },
-  // Ruta comodín: si se accede a una ruta no definida, redirige a login
+  // ¡NUEVO! Rutas de perfil y configuración movidas antes del comodín
+  {
+    path: 'configuracion',
+    loadComponent: () => import('./configuracion/configuracion.page').then( m => m.ConfiguracionPage),
+    canActivate: [AuthGuard] // Protegida por el guardia
+  },
+  {
+    path: 'perfil',
+    loadComponent: () => import('./perfil/perfil.page').then( m => m.PerfilPage),
+    canActivate: [AuthGuard] // Protegida por el guardia
+  },
+  
   {
     path: '**',
     redirectTo: 'login',

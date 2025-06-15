@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      <img src="assets/icon/Logo-Gasto-Movil07.png" alt="Logo Gasto Móvil" class="toolbar-logo">
+    </ion-title>
+    <ion-buttons slot="end">
+</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="profile-picture-section ion-text-center">
+    <ion-avatar class="profile-avatar">
+      <img [src]="usuario.fotoPerfil || 'assets/icon/icono-usuario.png'" alt="Foto de perfil">
+    </ion-avatar>
+    <ion-button fill="clear" (click)="fileInput.click()">
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Cambiar Foto
+    </ion-button>
+    <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+  </div>
+
+  <ion-list lines="full">
+    <ion-list-header>
+      <ion-label>Información Personal</ion-label>
+    </ion-list-header>
+
+    <form [formGroup]="profileForm">
+      <ion-item>
+        <ion-label position="stacked">Correo Electrónico</ion-label>
+        <ion-input type="email" formControlName="correo" placeholder="tu.correo@ejemplo.com"></ion-input>
+        <ion-note *ngIf="profileForm.get('correo')?.invalid && profileForm.get('correo')?.touched" color="danger">
+          Correo inválido.
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Teléfono</ion-label>
+        <ion-input type="tel" formControlName="telefono" placeholder="+56912345678"></ion-input>
+        <ion-note *ngIf="profileForm.get('telefono')?.invalid && profileForm.get('telefono')?.touched" color="danger">
+          Teléfono inválido (ej: +56912345678).
+        </ion-note>
+      </ion-item>
+
+      <ion-button expand="block" class="ion-margin-top" (click)="saveProfile()" [disabled]="!profileForm.valid">
+        Guardar Cambios
+      </ion-button>
+    </form>
+  </ion-list>
+
+  <ion-list lines="full" class="ion-margin-top">
+    <ion-list-header>
+      <ion-label>Cambiar Contraseña</ion-label>
+    </ion-list-header>
+
+    <form [formGroup]="passwordForm">
+      <ion-item>
+        <ion-label position="stacked">Contraseña Actual</ion-label>
+        <ion-input type="password" formControlName="currentPassword" placeholder="Ingresa tu contraseña actual"></ion-input>
+        <ion-note *ngIf="passwordForm.get('currentPassword')?.invalid && passwordForm.get('currentPassword')?.touched" color="danger">
+          Contraseña actual es requerida.
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Nueva Contraseña</ion-label>
+        <ion-input type="password" formControlName="newPassword" placeholder="Ingresa tu nueva contraseña"></ion-input>
+        <ion-note *ngIf="passwordForm.get('newPassword')?.invalid && passwordForm.get('newPassword')?.touched" color="danger">
+          Mínimo 6 caracteres.
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Confirmar Nueva Contraseña</ion-label>
+        <ion-input type="password" formControlName="confirmNewPassword" placeholder="Confirma tu nueva contraseña"></ion-input>
+        <ion-note *ngIf="passwordForm.errors?.['mismatch'] && passwordForm.get('confirmNewPassword')?.touched" color="danger">
+          Las contraseñas no coinciden.
+        </ion-note>
+      </ion-item>
+
+      <ion-button expand="block" class="ion-margin-top" (click)="changePassword()" [disabled]="!passwordForm.valid">
+        Cambiar Contraseña
+      </ion-button>
+    </form>
+  </ion-list>
+
+</ion-content>

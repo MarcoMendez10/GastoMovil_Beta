@@ -1,0 +1,107 @@
+
+
+// --- ESTILOS GENERALES DEL POPUP/TARJETA DE OPCIONES ---
+ion-list-header {
+  ion-label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--ion-color-primary); // Color primario para el título de la lista
+    padding-bottom: 10px; // Espacio debajo del título
+  }
+}
+
+ion-item {
+  --detail-icon-color: var(--ion-color-medium); // Color de la flecha de detalle
+  --padding-start: 16px; // Espacio inicial
+  --inner-padding-end: 16px; // Espacio final
+  --background: transparent; // Fondo transparente para el item (asumiendo que el ion-list o ion-content ya tiene fondo)
+  color: var(--ion-text-color); // Color del texto del item
+
+  ion-icon[slot="start"] {
+    color: var(--ion-color-medium); // Color por defecto de los íconos de los items
+    font-size: 1.3em; // Tamaño un poco más grande para los íconos de los items
+  }
+
+  ion-label {
+    font-size: 1em;
+  }
+}
+
+// --- ESTILOS ESPECÍFICOS PARA EL SEGMENTO DE CAMBIO DE TEMA ---
+// Apunta al ion-item que contiene el ion-segment
+ion-item:has(ion-segment) {
+  // Elimina el padding predeterminado del ion-item para que el segmento ocupe el ancho completo si lo deseas
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  padding-left: 0;
+  padding-right: 0;
+  // Asegura que el label "Cambio de Tema" se separe bien del segmento
+  ion-label {
+    padding-left: 16px; // Mantiene el padding a la izquierda para el label
+    margin-bottom: 8px; // Un poco de espacio antes del segmento
+    font-weight: 500;
+  }
+}
+
+ion-segment {
+  // Estilo general del contenedor del segmento
+  display: flex; // Asegura que los botones se distribuyan correctamente
+  width: calc(100% - 32px); // Ocupa el ancho completo con un poco de margen a los lados
+  margin: 0 16px 16px 16px; // Centra el segmento y le da márgenes
+  border: 1px solid var(--ion-color-medium); // Un borde sutil para el segmento
+  border-radius: 8px; // Bordes redondeados para el segmento
+  overflow: hidden; // Asegura que los contenidos no se desborden
+  background: var(--ion-color-light); // Fondo claro para el segmento en modo claro
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Sombra sutil para el segmento
+
+  // Estilos de los botones del segmento (Claro/Oscuro)
+  ion-segment-button {
+    --background-checked: var(--ion-color-primary); // Fondo del botón activo (ej. azul primario)
+    --color: var(--ion-color-medium); // Color del texto/icono inactivo
+    --color-checked: var(--ion-color-primary-contrast); // Color del texto/icono activo (ej. blanco si primary es oscuro)
+    --border-radius: 0; // Quita el radio de borde individual, lo manejamos en el contenedor
+    --ripple-color: var(--ion-color-primary-tint); // Efecto de onda al presionar
+
+    flex-direction: column; // Coloca el label y el icono uno sobre otro
+    justify-content: center;
+    align-items: center;
+    height: 60px; // Altura fija para los botones, dándoles más "cuerpo"
+
+    ion-label {
+      font-size: 0.9em; // Tamaño de fuente para el label
+      font-weight: 500;
+      margin-top: 4px; // Espacio entre el icono y el label
+    }
+
+    ion-icon {
+      font-size: 1.5em; // Tamaño del icono
+    }
+  }
+}
+
+// --- Ajustes para el Modo Oscuro (si tu popover cambia de tema) ---
+// Estos estilos se aplicarían si el body.ion-color-theme-dark está activo
+// y si este SCSS está a nivel global o el componente Popover hereda los temas.
+// Si no, podría ser necesario un :host-context(.ion-color-theme-dark) selector si el Popover está en Shadow DOM.
+body.ion-color-theme-dark {
+  ion-segment {
+    --background: var(--ion-color-dark); // Fondo oscuro para el segmento en modo oscuro
+    border-color: var(--ion-color-medium); // Borde para el segmento
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4); // Sombra más oscura para el segmento
+
+    ion-segment-button {
+      --background-checked: var(--ion-color-primary); // Mantén el primary para el botón activo
+      --color: var(--ion-color-medium); // Color del texto/icono inactivo (medio para oscuro)
+      --color-checked: var(--ion-color-primary-contrast); // Color del texto/icono activo
+    }
+  }
+}
+
+// Estilos para el propio popover (si usas un popover)
+// Asegúrate de que el fondo del popover también cambie con el tema
+ion-popover::part(content) {
+  --background: var(--ion-background-color); // Fondo del popover según el tema
+  --color: var(--ion-text-color); // Color del texto del popover
+  border-radius: 12px; // Bordes redondeados para el popover
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); // Sombra más pronunciada para el popover
+}

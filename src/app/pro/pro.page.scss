@@ -1,7 +1,7 @@
 
   .pro-content {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 0 auto 10px auto;
     padding: 20px;
     background: var(--ion-color-light);
     border-radius: 8px;
@@ -12,7 +12,7 @@
   .pro-main-icon {
     font-size: 10em;
     color: var(--ion-color-tertiary); 
-    margin-bottom: 20px;
+    margin-bottom: -140px;
     --ionicon-stroke-width: 16px; 
   }
 
@@ -38,3 +38,8 @@
     font-size: 0.9em;
     color: var(--ion-color-medium);
   }
+ion-content {
+  
+  --background: url('/assets/img/IMAGEN-DE FONDO-AJUSTE.jpg') no-repeat center center / cover;
+  
+}
